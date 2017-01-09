@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { userLogged } from '../actions/index';
 import { userLogOut } from '../actions/index';
 import { bindActionCreators } from 'redux';
+import Logout from '../components/logout';
 
 const APP_ID = "410583515973375";
 const PERMISSIONS = "name,email,picture"
@@ -17,22 +18,19 @@ class Login extends Component {
 
   renderLogin = () => {
     if (this.props.logged === false) {
+      
       return( 
         <FacebookLogin
           appId={APP_ID}
           autoLoad={false}
           fields={PERMISSIONS}
           callback={this.props.userLogged}
-          icon="fa-facebook" />
-      )
+          icon="fa-facebook" />)
+    
     } else if (this.props.logged === true) {
-      return( 
-        <div>
-          <button className="btn btn-danger" onClick={this.props.userLogOut}> 
-            Log Out
-          </button>
-        </div>
-      )
+      
+      return(
+        <Logout userLogOut={this.props.userLogOut} />)
     }
   }
 

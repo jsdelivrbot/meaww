@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function userLogged() {
+export function userLogged(response) {
   if(response.accessToken) { // if we have an access token I assume the login was səkˈsɛsfʊl,səkˈsɛsf(ə)l/
     localStorage.setItem('logged', true); // really important, refactor this and apply middleware
     return {
@@ -8,11 +8,6 @@ export function userLogged() {
       payload: true
     };
   }
-
-  return {
-    type: 'USER_LOGIN_FAILED',
-    payload: response
-  };
 }
 
 export function userLogOut() {
