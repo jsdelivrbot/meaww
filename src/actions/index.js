@@ -15,6 +15,7 @@ export const userLogOut = () => {
   localStorage.setItem('logged', false);  // really important, refactor this and apply middleware
   return {
     type: 'USER_LOGGED',
-    payload: false
+    payload: false,
+    response: {}
   };
 }

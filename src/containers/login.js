@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
+import { Link } from 'react-router'
 import { connect } from 'react-redux';
 import { userLogged } from '../actions/index';
 import { userLogOut } from '../actions/index';
@@ -28,7 +29,10 @@ class Login extends Component {
     } else if (this.props.logged === true) {
       
       return(
-        <Logout userLogOut={this.props.userLogOut} />)
+        <div>
+          <Logout userLogOut={this.props.userLogOut} />
+        </div>
+      )
     }
   }
 

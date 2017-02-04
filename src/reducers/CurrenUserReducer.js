@@ -1,12 +1,12 @@
 
-const InitCurrentUser = localStorage.getItem('currentUser') || {}
-
-export default function(state = InitCurrentUser, action) { 
+export default function(state = {}, action) { 
   switch(action.type) {
     case 'USER_LOGGED':
-      localStorage.setItem('currentUser', JSON.stringify(action.response))
-      const user = localStorage.getItem('currentUser') || "{}"
-      return JSON.parse(user)
+      return action.response.id && {
+        id: action.response.id,
+        name: action.response.name,
+        picture: action.response.picture.data.url
+      } || {}
   }
   return state;
 }
