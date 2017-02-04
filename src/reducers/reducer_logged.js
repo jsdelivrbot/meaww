@@ -1,5 +1,5 @@
 
-const InitLogged = localStorage.getItem('logged') == 'true';
+const InitLogged = localStorage.getItem('logged') == 'true'
 
 export default function(state = InitLogged, action) { 
   switch(action.type) {
