@@ -12,8 +12,6 @@ const PERMISSIONS = "name,email,picture"
 class Login extends Component {
   constructor(props) {
     super(props);
-    
-    this.renderLogin = this.renderLogin.bind(this);
   }
 
   renderLogin = () => {
@@ -45,7 +43,8 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-    logged: state.logged
+    logged: state.logged,
+    currentUser: state.response
   };
 }
 
